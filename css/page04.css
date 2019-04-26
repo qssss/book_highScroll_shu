@@ -1,0 +1,50 @@
+.keyboard {width: 790px;height: 480px;background: url(../images/keyboard_bg.png) no-repeat center center;z-index: 100;position: absolute;top: 100%;
+    padding: 20px 20px 15px 35px;display: none;right: -20px;}
+.keyboard .keyboard_inner .c1 {display: block;width: 100%;position: relative;}
+.keyboard .keyboard_inner .c1 .keboard_s {display: inline-block;width: 50px;height: 78px;background-repeat: no-repeat;margin-right: 6px;margin-bottom: 7px;color: transparent;}
+.key_1 {background-image: url(../images/key_1.png);}
+.key_2 {background-image: url(../images/key_2.png);}
+.key_3 {background-image: url(../images/key_3.png);}
+.key_4 {background-image: url(../images/key_4.png);}
+.key_5 {background-image: url(../images/key_5.png);}
+.key_6 {background-image: url(../images/key_6.png);}
+.key_7 {background-image: url(../images/key_7.png);}
+.key_8 {background-image: url(../images/key_8.png);}
+.key_9 {background-image: url(../images/key_9.png);}
+.key_0 {background-image: url(../images/key_0.png);}
+.key_delete {background-image: url(../images/key_delete.png);width: 112px!important;height: 77px!important;margin-right: 0!important;}
+.key_q {background-image: url(../images/key_q.png);}
+.key_w {background-image: url(../images/key_w.png);}
+.key_e {background-image: url(../images/key_e.png);}
+.key_r {background-image: url(../images/key_r.png);}
+.key_t {background-image: url(../images/key_t.png);}
+.key_y {background-image: url(../images/key_y.png);}
+.key_u {background-image: url(../images/key_u.png);}
+.key_i {background-image: url(../images/key_i.png);}
+.key_o {background-image: url(../images/key_o.png);}
+.key_p {background-image: url(../images/key_p.png);}
+.key_increace {background-image: url(../images/key_increace.png);}
+.key_decreace {background-image: url(../images/key_decreace.png);margin-right: 0!important;;}
+.key_a {background-image: url(../images/key_a.png);}
+.key_s {background-image: url(../images/key_s.png);}
+.key_d {background-image: url(../images/key_d.png);}
+.key_f {background-image: url(../images/key_f.png);}
+.key_g {background-image: url(../images/key_g.png);}
+.key_h {background-image: url(../images/key_h.png);}
+.key_j {background-image: url(../images/key_j.png);}
+.key_k {background-image: url(../images/key_k.png);}
+.key_l {background-image: url(../images/key_l.png);}
+.key_xiahua {background-image: url(../images/key_xiahua.png);}
+.key_enter {background-image: url(../images/key_enter.png);position: absolute;width: 112px!important;height: 164px!important;margin-right: 0!important;
+    margin-left: 3px;}
+.key_z {background-image: url(../images/key_z.png);}
+.key_x {background-image: url(../images/key_x.png);}
+.key_c {background-image: url(../images/key_c.png);}
+.key_v {background-image: url(../images/key_v.png);}
+.key_b {background-image: url(../images/key_b.png);}
+.key_n {background-image: url(../images/key_n.png);}
+.key_m {background-image: url(../images/key_m.png);}
+.key_douhao {background-image: url(../images/key_douhao.png);}
+.key_dot {background-image: url(../images/key_dot.png);}
+.key_wenhao {background-image: url(../images/key_wenhao.png);}
+.key_kongge {background-image: url(../images/key_kongge.png);width: 712px;height: 77px;font-size: 0;}

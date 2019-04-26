@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>书页掉落测试</title>
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/multilevelmenu.css" />
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<link rel="stylesheet" type="text/css" href="css/animations.css" />
+	<script src="js/modernizr.custom.js"></script>
+</head>
+<style type="text/css">
+	#pt-main {width: 400px;height: 800px;margin: 80px auto 0;}
+</style>
+<body>
+	<button id="btn_prev">上一张</button>
+	<button id="btn_next">下一张</button>
+	<div id="pt-main" class="pt-perspective">
+		<div class="pt-page pt-page-1"><h1><span>大集合之</span><strong>页面</strong> 过渡效果1</h1></div>
+		<div class="pt-page pt-page-2"><h1><span>大集合之</span><strong>页面</strong> 过渡效果2</h1></div>
+		<div class="pt-page pt-page-3"><h1><span>大集合之</span><strong>页面</strong> 过渡效果3</h1></div>
+		<div class="pt-page pt-page-4"><h1><span>大集合之</span><strong>页面</strong> 过渡效果4</h1></div>
+		<div class="pt-page pt-page-5"><h1><span>大集合之</span><strong>页面</strong> 过渡效果5</h1></div>
+		<div class="pt-page pt-page-6"><h1><span>大集合之</span><strong>页面</strong> 过渡效果6</h1></div>
+	</div>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery.dlmenu.js"></script>
+	<script src="js/pagetransitions.js"></script>
+	<script type="text/javascript">
+		// outClass = 'pt-page-rotateFall pt-page-ontop';
+		// inClass = 'pt-page-scaleUp';
+		var btnPrev = $('#btn_prev');
+		var btnNext = $('#btn_next');
+		var pages = $('.pt-page');
+		var current = 0;
+		var flag = true;
+		var time = setInterval(func,2000)
+		function func() {
+			if(current == pages.length - 1){
+				pages.eq(current).addClass('pt-page-rotateFall pt-page-ontop pt-page-current').siblings().removeClass('pt-page-rotateFall pt-page-ontop');
+				current = 0;
+				pages.eq(current).addClass('pt-page-scaleUp pt-page-current');
+			} else {
+				pages.eq(current).addClass('pt-page-rotateFall pt-page-ontop pt-page-current').siblings().removeClass('pt-page-rotateFall pt-page-ontop');
+				current++;
+				pages.eq(current).addClass('pt-page-scaleUp pt-page-current');
+			}
+			var timer = setTimeout(function() {
+				pages.eq(current-1).removeClass('pt-page-rotateFall pt-page-ontop pt-page-current');
+				pages.eq(current).removeClass('pt-page-scaleUp');
+			},1500)
+			console.log(current)
+		}
+		btnPrev.click(function() {
+			clearInterval(time);
+			pages.eq(current - 1).addClass('pt-page-scaleUpDown pt-page-delay300 pt-page-current');
+			pages.eq(current).addClass('pt-page-scaleDown')
+		})
+		btnNext.click(function() {
+			setInterval(func,2000)
+			func();
+		})
+		
+		// outClass = 'pt-page-scaleDown';
+		// inClass = 'pt-page-scaleUpDown pt-page-delay300';
+	</script>
+</body>
+</html>

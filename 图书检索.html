@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>图书检索</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/basic.css">
+	<link rel="stylesheet" type="text/css" href="css/page04.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/vue.min.js"></script>
+</head>
+<style type="text/css">
+	.page04 {display:block;width: 100%;height: 100%;background: url(images/page04_defaultBg.png);position: relative;overflow: hidden;}
+	.page04 .search_box .search_w {position: relative;width: 900px;margin: 366px auto 0;height: 60px;background: #d1f3ff;}
+	.page04 .search_box .search_w .search_all {width: 180px;float: left;position: relative;height: 100%;}
+	.page04 .search_box .search_w .search_all:after {position: absolute;left: 100%;background-color: #7bc3da;top:15px;bottom: 15px;height: 30px;width: 2px;content: "";}
+	.page04 .search_box .search_w .search_all .t,
+	.page04 .search_box .search_w .search_category .t {width: 100%;height: 100%;line-height: 60px;padding: 0 12px;background: url(images/arrow_down.png) no-repeat 96% center;color: #7bc3da;font-size: 24px;}
+	.page04 .search_box .search_w .search_all .b,
+	.page04 .search_box .search_w .search_category .b {width: 100%;position: absolute;left: 0;right: 0;top: 100%;height: 200px;background: #ddf6ff;box-shadow: 3px 3px 6px rgba(221,246,255,.11)}
+	.page04 .search_box .search_w .search_all .b .inner,
+	.page04 .search_box .search_w .search_category .b .inner {padding: 0 12px;}
+	.page04 .search_box .search_w .search_all .b .inner .scroll,
+	.page04 .search_box .search_w .search_category .b .inner .scroll {width: 100%;height: 100%;overflow-y: auto;}
+	.page04 .search_box .search_w .search_all .b .inner .scroll div,
+	.page04 .search_box .search_w .search_category .b .inner .scroll div {height: 40px;line-height: 40px;font-size: 20px;color: #87c9df;}
+	.page04 .search_box .search_w .search_category {width: 180px;float: left;position: relative;height: 100%;}
+	.page04 .search_box .search_w .search_category:after {position: absolute;left: 100%;background-color: #7bc3da;top:15px;bottom: 15px;height: 30px;width: 2px;content: "";}
+	.page04 .search_box .search_w .search_cell {width: 540px;float: left;height: 100%;position: relative;}
+	.page04 .search_box .search_w .search_cell input {font-size: 20px;padding: 0 20px;position: absolute;left: 0;right: 0;top: 0;bottom: 0;background: transparent;width: 100%;}
+	.page04 .search_box .search_w .search_cell input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	    color:#7bc3da;font-size: 20px;}
+	.page04 .search_box .search_w .search_cell input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	   color:#7bc3da;font-size: 20px;}
+	.page04 .search_box .search_w .search_cell input::-moz-placeholder { /* Mozilla Firefox 19+ */
+	   color:#7bc3da;font-size: 20px;}
+	.page04 .search_box .search_w .search_cell input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	   color:#7bc3da;font-size: 20px;}
+	.page04 .search_box .search_btn {width: 438px;height: 64px;display: block;margin: 70px auto 0;background: url(images/search_btn.png) no-repeat center center;font-size: 26px;color: #fff;}
+	.page04 .success_wrap .search_result {font-size: 26px;color: #7bc3da;text-align: right;margin-top: 35px;padding-right: 68px;}
+	.page04 .success_wrap .success_bookList {position: relative;height: 1270px;border: 1px solid red;margin-top: 20px;padding: 0 25px;}
+	.page04 .success_wrap .success_bookList ul {height: 100%;position: relative;overflow-y: auto;padding-left: 32px;}
+	.page04 .success_wrap .success_bookList ul::-webkit-scrollbar {width: 15px;}
+	.page04 .success_wrap .success_bookList ul::-webkit-scrollbar-thumb {background: url(images/scrollbar1.png) no-repeat center center;}
+	.page04 .success_wrap .success_bookList ul li {float: left;width: 460px;height: 614px;background: url(images/list_bg3.png) no-repeat center center;position: relative;margin-bottom: 40px;}
+	.page04 .success_wrap .success_bookList ul li:nth-child(2n-1) {margin-right: 40px;}
+	.page04 .success_wrap .success_bookList ul li a {position: absolute;left: 10px;right: 10px;top: 10px;bottom: 10px;padding: 10px;}
+	.page04 .success_wrap .success_bookList ul li a .book_top {position: relative;overflow: hidden;width: 100%;margin-top: 20px;}
+	.page04 .success_wrap .success_bookList ul li a .book_top .pic {width: 280px;height: 280px;float: left;margin-left: 15px;background: #fff;}
+	.page04 .success_wrap .success_bookList ul li a .book_top .pic img {display: block;width: 100%;height: 100%;}
+	.page04 .success_wrap .success_bookList ul li a .book_top .book_basic {float: left;}
+	.page04 .success_wrap .success_bookList ul li a .book_top .book_basic h1 {width: 30px;float: left;color: #6e93eb;font-size: 24px;}
+	.page04 .success_wrap .success_bookList ul li a .book_top .book_basic p {width: 30px;float: left;color: #4da9d0;margin-left: 20px;font-size: 18px;margin-right: 12px;}
+	/*.page04 .success_wrap .success_bookList ul li a .book_top .book_details {}*/
+	.page04 .success_wrap .success_bookList ul li a .book_details p {font-size: 18px;color: #555;line-height: 40px;padding: 0 20px;}
+</style>
+<body>
+	<div class="page04 default" id="app">
+		<div class="search_box">
+			<div class="search_w">
+				<div class="search_all" >
+					<div class="t">所有字段</div>
+					<div class="b">
+						<div class="inner">
+							<div class="scroll">
+								<div>全部</div>
+								<div>提名</div>
+								<div>ISBN</div>
+								<div>作者</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="search_category" >
+					<div class="t">分类</div>
+					<div class="b">
+						<div class="inner">
+							<div class="scroll">
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="search_cell">
+					<input type="text" name="" placeholder="请搜索你想看的书" >
+				</div>
+				<div class="keyboard">
+					<div class="keyboard_inner">
+						<div class="c1">
+							<div class="keboard_s key_1">1</div>
+							<div class="keboard_s key_2">2</div>
+							<div class="keboard_s key_3">3</div>
+							<div class="keboard_s key_4">4</div>
+							<div class="keboard_s key_5">5</div>
+							<div class="keboard_s key_6">6</div>
+							<div class="keboard_s key_7">7</div>
+							<div class="keboard_s key_8">8</div>
+							<div class="keboard_s key_9">9</div>
+							<div class="keboard_s key_0">0</div>
+							<div class="keboard_s key_delete">delete</div>
+						</div>
+						<div class="c1">
+							<div class="keboard_s key_q">q</div>
+							<div class="keboard_s key_w">w</div>
+							<div class="keboard_s key_e">e</div>
+							<div class="keboard_s key_r">r</div>
+							<div class="keboard_s key_t">t</div>
+							<div class="keboard_s key_y">y</div>
+							<div class="keboard_s key_u">u</div>
+							<div class="keboard_s key_i">i</div>
+							<div class="keboard_s key_o">o</div>
+							<div class="keboard_s key_p">p</div>
+							<div class="keboard_s key_increace">+</div>
+							<div class="keboard_s key_decreace">-</div>
+						</div>
+						<div class="c1">
+							<div class="keboard_s key_a">a</div>
+							<div class="keboard_s key_s">s</div>
+							<div class="keboard_s key_d">d</div>
+							<div class="keboard_s key_f">f</div>
+							<div class="keboard_s key_g">g</div>
+							<div class="keboard_s key_h">h</div>
+							<div class="keboard_s key_j">j</div>
+							<div class="keboard_s key_k">k</div>
+							<div class="keboard_s key_l">l</div>
+							<div class="keboard_s key_xiahua">_</div>
+							<div class="keboard_s key_enter">enter</div>
+						</div>
+						<div class="c1">
+							<div class="keboard_s key_z">z</div>
+							<div class="keboard_s key_x">x</div>
+							<div class="keboard_s key_c">c</div>
+							<div class="keboard_s key_v">v</div>
+							<div class="keboard_s key_b">b</div>
+							<div class="keboard_s key_n">n</div>
+							<div class="keboard_s key_m">m</div>
+							<div class="keboard_s key_douhao">,</div>
+							<div class="keboard_s key_dot">.</div>
+							<div class="keboard_s key_wenhao">?</div>
+						</div>
+						<div class="c1">
+							<div class="key_kongge">space</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button class="search_btn">搜索</button>
+		</div>
+		<div class="success_wrap">
+			<div class="search_result">为你搜索到356个相关书籍</div>
+			<div class="success_bookList">
+				<ul>
+					<li v-for="n in 10">
+						<a href="javascript:;">
+							<div class="book_top">
+								<div class="pic"><img src="images/pic.png"></div>
+								<div class="book_basic">
+									<p>E·B·怀特</p>
+									<h1>夏洛的网彩绘注音完整版</h1>
+								</div>
+							</div>
+							<div class="book_details">
+								<p>出版社：上海译文出版社</p>
+								<p>出版日期：2018-08-01</p>
+								<p>索书号：48290482</p>
+								<p>单价：58.00元</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			// data: {
+			// 	flag: true,
+			// 	cateList:[],
+			// 	searchList:[],
+			// 	alltext:'所有字段',
+			// 	cateText:'分类'
+			// },
+			// mounted() {
+			// 	this.init();
+			// },
+			// methods: {
+			// 	init() {
+			// 		this.cateList = cateList;
+			// 		this.searchList = searchList;
+			// 	},
+			// 	showAll: function() {
+			// 		var _all = document.getElementsByClassName('search_all')[0];
+			// 		var _b = _all.getElementsByClassName('b')[0]
+			// 		if(this.flag) {
+			// 			_b.style.display = 'block';
+			// 		} else {
+			// 			_b.style.display = 'none';
+			// 		}
+			// 		this.flag = !this.flag;
+			// 	},
+			// 	showCate: function() {
+			// 		var _all = document.getElementsByClassName('search_category')[0];
+			// 		var _b = _all.getElementsByClassName('b')[0]
+			// 		if(this.flag) {
+			// 			_b.style.display = 'block';
+			// 		} else {
+			// 			_b.style.display = 'none';
+			// 		}
+			// 		this.flag = !this.flag;
+			// 	},
+			// 	searchBook: function() {
+					
+			// 	},
+			// 	showKeyBoard: function() {
+			// 		console.log(this)
+			// 	},
+			// 	toggleAll(n) {
+			// 		this.alltext = n.text;
+			// 	},
+			// 	toggleCate(n) {
+			// 		this.cateText = n.text02;
+			// 	}
+
+			// }
+		})
+
+		$(function() {
+			//键盘事件
+			$('.keyboard .c1 div').click(function() {
+				//点击的值
+				var newT = $(this).text();
+				//输入框原有的值
+				var oldT = $('.search_cell input').val();
+				if(oldT == ""|| oldT == null) {//输入框为空时
+					if(newT == 'space' || newT == 'delete' || newT == 'enter') {//如果点击的是空格键、删除键、回车键的时候
+						alert('请输入您要搜索的书')
+					} else {
+						$('.search_cell input').val(newT);
+					}
+				}else if(newT == 'delete') {//点击的回退按钮
+					var arr = $('.search_cell input').val().split('');
+					var arr_new = arr.slice(0,arr.length-1);
+					var str_new = arr_new.join('');
+					$('.search_cell input').val(str_new);
+				}else if(newT == 'space') {//点击了空格
+					$('.search_cell input').val(oldT + ' ');		
+				}else if(newT == 'enter') {//点击了回车
+					// $('.keyboard').hide();
+				}else {//点击了其他的
+					$('.search_cell input').val(oldT + newT);
+				}
+				$('.search_cell input').focus();	
+			})
+			//移动到输入框上或者触摸输入框显示键盘
+			$('.search_box .search_cell input').on({
+				mouseover:function() {
+					$('.keyboard').show();
+				},
+				touchstart: function() {
+					$('.keyboard').show();
+				},
+				click: function() {
+					$('.keyboard').show();
+				}
+			})
+			$('.search_cell a').click(function() {
+				var _value = $('.search_cell input').val();
+				$('.keyboard').hide();
+			})
+			$('.key_enter').click(function() {
+				var _value = $('.search_cell input').val();
+				$('.keyboard').hide();
+			})
+		})
+	</script>
+</body>
+</html>

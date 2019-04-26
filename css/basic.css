@@ -1,0 +1,5 @@
+html,body {width:1080px;height: 1920px;}
+* {margin:0;padding: 0;font-family: '宋体';box-sizing: border-box;}
+a {text-decoration: none;}
+button,input {border: none;outline: none;}
+ul,li {list-style: none;}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>弹窗</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/basic.css">
+	<link rel="stylesheet" type="text/css" href="css/page01.css">
+	<script type="text/javascript" src="js/vue.min.js"></script>
+</head>
+<style type="text/css">
+	.page01 {width: 100%;height: 100%;background: url(images/page01.png) no-repeat center center;}
+	.page01 .block {background-repeat: no-repeat;background-position: center;width: 949px;height: 299px;}
+	.page01 .block a {display: block;width:100%;height: 100%;}
+	.block_recomand {background-image: url(images/block_recomand.png);}
+	.block_view {background-image: url(images/block_view.png);position: relative;top: -20px;}
+	.block_rank {background-image: url(images/block_rank.png);position: relative;top: -40px;}
+	.block_search {background-image: url(images/block_search.png);position: relative;top: -60px;}
+</style>
+<body>
+	<div class="page01" id="app">
+		<div class="block block_recomand">
+			<a href="新书推荐.html"></a>
+		</div>
+		<div class="block block_view">
+			<a href="图书浏览.html"></a>
+		</div>
+		<div class="block block_rank">
+			<a href="图书排行.html"></a>
+		</div>
+		<div class="block block_search">
+			<a href="图书检索.html"></a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data: {
+
+			}
+		})
+	</script>
+</body>
+</html>

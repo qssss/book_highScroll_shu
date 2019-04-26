@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>图书详情</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/basic.css">
+	<link rel="stylesheet" type="text/css" href="css/page02.css">
+	<script type="text/javascript" src="js/vue.min.js"></script>
+</head>
+<style type="text/css">
+	.page03 {display: block;width: 100%;height: 100%;background: url(images/page03.png) no-repeat center center;position: relative;overflow: hidden;}
+	.page03 .book_basic {margin: 216px 0 35px 177px;position: relative;overflow: hidden;}
+	.page03 .book_basic .pic {width: 356px;height: 356px;float: left;margin-right: 45px;border: 1px solid #4480b6;overflow-x: hidden;background: #fff;}
+	.page03 .book_basic .pic img {display: block;width: 100%;height: 100%;}
+	.page03 .book_basic .details {float: left;padding-right: 50px;}
+	.page03 .book_basic .details h1 {font-size: 40px;margin-bottom: 20px;color: #4480b6;}
+	.page03 .book_basic .details p {font-size: 24px;line-height: 40px;color: #4480b6;}
+	.page03 .book_details {padding: 0 45px;height: 1099px;}
+	.page03 .book_details .scroll {overflow-y: auto;height: 100%;}
+	.page03 .book_details .scroll::-webkit-scrollbar {width: 2px;}
+	.page03 .book_details .scroll::-webkit-scrollbar-thumb {width: 19px;background: url(images/scrollbar.png) no-repeat center center;}
+	.page03 .book_details section {position: relative;overflow: hidden;}
+	.page03 .book_details section .title {width: 1011px;height: 60px;background: url(images/bar.png) no-repeat center center;line-height: 60px;font-size: 26px;color: #fff;}
+	.page03 .book_details section .title span {display: inline-block;width: 36px;height: 43px;background: url(images/bag.png) no-repeat center center;margin-left: 135px;display: inline-block;vertical-align: middle;margin-right: 16px;position: relative;top: -4px;}
+	.page03 .book_details section .cont {width: 720px;margin: 0 auto;padding: 25px 0;}
+	.page03 .book_details section .cont p {font-size: 18px;color: rgba(73,76,81,1);line-height: 30px;}
+	.page03 .book_details section.sec_intro .cont p,
+	.page03 .book_details section.sec_author .cont p {text-indent: 2em;line-height: 30px;}
+	.page03 .book_details section.sec_category .cont {height: 515px;overflow: hidden;}
+	.page03 .book_details section.sec_category .cont p {line-height: 40px;}
+	.page03 .book_details section.sec_category button {width: 186px;height: 39px;background: url(images/btn_bg.png) no-repeat center center;color: #fff;float: right;clear: both;cursor: pointer;margin-bottom: 25px;}
+</style>
+<body>
+	<div class="page03" id="app">
+		<div class="book_basic">
+			<div class="pic">
+				<img src="images/pic.png">
+			</div>
+			<div class="details">
+				<h1>世界欠我一个你</h1>
+				<p class="author">作者：小馆长著，大雪文化出品</p>
+				<p class="time">出版时间：2019年01月</p>
+				<p class="bookNumber">索书号：567522</p>
+				<p class="address">藏馆位置：C4-1298</p>
+				<p class="price">单价：39.8元</p>
+			</div>
+		</div>
+		<div class="book_details">
+			<div class="scroll">
+				<section class="sec_intro">
+					<div class="title"><span></span>图书简介</div>
+					<div class="cont">
+						<p>1616万撩人心弦的感性文字，写尽你情感中的痛与希冀本书是由古灵精怪、特别有故事的小馆长所写的青春成长励志随笔集。在本书中，她通过自己和身边人的真实经历，表达了对成长和爱情的独到观点。曾经我希望有个如你一般的人将我藏好，护我周全，可你的转身退场是那样的潇洒漂亮，后来的我们，只有我，没有你。但是我会学会习惯一个人，变得更好。</p>
+					</div>
+				</section>
+				<section class="sec_category">
+					<div class="title"><span></span>图书目录</div>
+					<div class="cont">
+						<p>第一章 世界欠我一个你</p>
+						<p>002 最想要的宠爱是你给的</p>
+						<p>005 我想你了，但是我默默地没有告诉你</p>
+						<p>008 等你的消息最折磨人</p>
+						<p>第二章 谢谢你来到我的世界</p>
+						<p>042 醉过方知酒浓，爱过方知情重</p>
+						<p>第三章 总要习惯一个人</p>
+						<p>088 真的，我可以独自熬过所有苦难</p>
+						<p>第四章 远方值得期待</p>
+						<p>132 我要的是毫无理由的偏心和宠爱</p>
+						<p>176 做人最要紧的就是开心</p>
+						<p>第六章 我与世界只差一个你</p>
+						<p>214 我们都在等一个和自己相契合的灵魂
+						<p>216 谈一场每天清零的恋爱</p>
+						<p>218 即使身处逆境，也要心向阳光</p>
+						<p>220 谢谢你曾经喜欢我</p>                 
+					</div>
+					<button>点击显示全部</button>
+				</section>
+				<section class="sec_author">
+					<div class="title"><span></span>作者介绍</div>
+					<div class="cont">
+						<p>小馆长，公众号“小馆长”创始人和运营人，追求完美的处女座，古灵精怪，对情感和青春的经历有着细腻和独特的看法，在诸多夜晚带给读者理解与宽慰。她懂读者们在生活与成长中的委曲求全，同时也真诚地祝福每个人，能在每一段感情中找到真正的自己。</p>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				
+			}
+		})
+	</script>
+</body>
+</html>
