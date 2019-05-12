@@ -3,101 +3,103 @@
 <head>
 	<title>新书推荐</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" type="text/css" href="css/basic.css">
 	<link rel="stylesheet" type="text/css" href="css/page02.css">
-	<script type="text/javascript" src="js/vue.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<link rel="stylesheet" type="text/css" href="css/fxsmall.css" />
+	<script src="js/modernizr.custom.js"></script>
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/xs.js"></script>
+	<script src="js/base.js"></script>
 </head>
-<style type="text/css">
-	.page02 {width: 100%;height: 100%;position: relative;overflow: hidden;background: url(images/page02.png) no-repeat center center;}
-	.page02 .reading {width: 292px;height: 212px;background: url(images/email.png) no-repeat center center;position: absolute;top: 50px;left: 60px;}
-	.page02 .book_title {width: 361px;height: 296px;background: url(images/book_title.png) no-repeat center center;position: absolute;right: 0;top: 0;}
-	.page02 .bow {width: 319px;height: 246px;background: url(images/bow.png) no-repeat center center;position: absolute;top: 710px;left: 60px;}
-	.page02 .bookPage {position: relative;overflow: hidden;}
-	.page02 .bookPage .pic {width: 400px;height: 400px;margin: 75px auto 10px;}
-	.page02 .bookPage .pic img {display: block;width: 100%;height: 100%;}
-	.page02 .bookPage h1 {font-size: 45px;color: #91c49d;text-align: center;padding: 0 10px;line-height: 45px;margin-bottom: 15px;}
-	.page02 .bookPage .author {text-align: center;padding: 0 10px;font-size: 26px;color: #f4b848;line-height: 26px;margin-bottom: 15px;}
-	.page02 .bookPage .num {text-align: center;padding: 0 10px;font-size: 26px;color: #f697b7;line-height: 26px;margin-bottom: 15px;}
-	.page02 .bookPage .book_info {position: relative;width: 760px;margin: 0 auto;}
-	.page02 .bookPage .book_info .book_tabs {display: flex;margin-bottom: 105px;}
-	.page02 .bookPage .book_info .book_tab {width: 229px;height: 68px;text-align: center;background-repeat: no-repeat;background-position: center;margin: 0 20px;color: #fff;text-align: center;line-height: 68px;font-size: 32px;}
-	
-	.page02 .bookPage .book_info .book_tab_intro {background: url(images/tab_intro.png);}
-	.page02 .bookPage .book_info .book_tab_cate {background: url(images/tab_cate.png);}
-	.page02 .bookPage .book_info .book_tab_author {background: url(images/tab_author.png);}
-	.page02 .bookPage .book_info .book_conts {width: 680px;height: 470px;background: url(images/rect.png) no-repeat center center;margin: 0 auto;}
-	.page02 .bookPage .book_info .book_cont {height: 100%;}
-	.page02 .bookPage .book_info .book_cont .inner {padding: 20px;}
-	.page02 .bookPage .book_info .book_cont .inner .scroll {height: 100%;overflow-y: auto;padding: 20px;}
-	.page02 .bookPage .book_info .book_cont .inner .scroll::-webkit-scrollbar {width: 10px;}
-	.page02 .bookPage .book_info .book_cont .inner .scroll::-webkit-scrollbar-thumb {background: url(images/scrollbar2.png) no-repeat;}
-	/*.page02 .bookPage .book_info .book_cont .book_cont_intro {width: 80%;display: block;margin: 0 auto;}*/
-	.page02 .bookPage .book_info .book_cont.book_cont_intro .scroll {padding-top: 40px;width: 80%;display: block;margin: 0 auto;}
-	.page02 .bookPage .book_info .book_cont.book_cont_intro p {font-size: 35px;color: #666062;margin-bottom: 35px;line-height: 35px;}
+
+<style>
+.bookPage {border: 1px solid blue;width: 800px;height: 1400px;margin: 100px auto 0;}
+#component {width: 100%;height: 1400px;}
+#component .itemwrap {width: 800px;height: 1400px;margin: 0 auto;}
+#component .itemwrap li {display: block;width: 100%;height: 100%;background:#fff}
+.custom-select {height: 0;visibolity:hidden;font-size: 0;border: none;}
 </style>
 <body>
-	<div class="page02" id="app">
+	<div class="page02" >
+		<div class="container">
+			<section id="app">
+				<div class="custom-select">
+					<select id="fxselect" name="fxselect">
+						<option value="-1" selected>选择一种效果...</option>
+						<option value="fxSlideBehind" selected>Slide Behind</option>
+					</select>
+				</div>
+				<div id="component" class="component component-transparent component component-transparent fxSlideForward">
+					<ul class="itemwrap">
+						<li class="current">
+							<div class="bookPage">
+								<div class="pic">
+									<img src="images/pic.png">
+								</div>
+								<h1>我们最好的十年</h1>
+								<p class="author">作者：苑子豪 儒意欣欣</p>
+								<p class="num">借阅量：852635</p>
+								<div class="book_info">
+									<div class="book_tabs">
+										<div class="book_tab book_tab_intro xs_li_06">图书简介</div>
+										<div class="book_tab book_tab_cate xs_li_06">图书目录</div>
+										<div class="book_tab book_tab_author xs_li_06">作者介绍</div>
+									</div>
+									<div class="book_conts">
+										<div class="book_cont book_cont_intro">
+											<div class="inner">
+												<div class="scroll">
+													<p>出版社：中国友谊出版社</p>    
+													<p>出版时间：2018-08-01</p>
+													<p>索书号：48290482</p>
+													<p>藏馆位置：C4-2873</p>
+													<p>单价：58.00元</p>              
+												</div>
+											</div>
+										</div>
+										<div class="book_cont book_cont_detail">
+											<div class="inner">
+												<div class="scroll">
+													<p>安德鲁·马修斯，国际知名童书作家，生活在英国的伯克郡。他已经为孩子们写了50多本书，作品被广泛翻译到世界各地，曾经两度获得英国童书奖——斯马尔蒂斯奖（the Smarties Award）。</p>
+													<p>托尼·罗斯，英国久负盛名的插画家之一，毕业于英国利物浦艺术学院，曾做过艺术顾问、设计、广告、卡通画家等多种工作。他曾获得“德国青少年文学奖”（the Deutsche Jugendliteraturpreis）。</p>
+													<p>讲述了理查德如何通过阴谋诡计成为国王，为满足私欲，他一直步步为营。但却被自己用计谋赶走的王子所带领的军队打败。</p>                   
+												</div>
+											</div>
+										</div>
+										<div class="book_cont book_cont_author">
+											<div class="inner">
+												<div class="scroll">
+													<p>作者介绍</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					
+					</ul>
+					<nav>
+						<a class="prev" href="#">Previous item</a>
+						<a class="next" href="#">Next item</a>
+					</nav>
+				</div>
+			</section>
+		</div>
 		<div class="reading">
 			<p>5418112</p>
 		</div>
 		<div class="book_title"></div>
 		<div class="bow"></div>
-		<div class="carousel">
-			<div class="bookPage">
-				<div class="pic">
-					<img src="images/pic.png">
-				</div>
-				<h1>我们最好的十年</h1>
-				<p class="author">作者：苑子豪 儒意欣欣</p>
-				<p class="num">借阅量：852635</p>
-				<div class="book_info">
-					<div class="book_tabs">
-						<div class="book_tab book_tab_intro">图书简介</div>
-						<div class="book_tab book_tab_cate">图书目录</div>
-						<div class="book_tab book_tab_author">作者介绍</div>
-					</div>
-					<div class="book_conts">
-						<div class="book_cont book_cont_intro">
-							<div class="inner">
-								<div class="scroll">
-									<p>出版社：中国友谊出版社</p>    
-									<p>出版时间：2018-08-01</p>
-									<p>索书号：48290482</p>
-									<p>藏馆位置：C4-2873</p>
-									<p>单价：58.00元</p>              
-								</div>
-							</div>
-						</div>
-						<div class="book_cont">
-							<div class="inner">
-								<div class="scroll">
-									<p>安德鲁·马修斯，国际知名童书作家，生活在英国的伯克郡。他已经为孩子们写了50多本书，作品被广泛翻译到世界各地，曾经两度获得英国童书奖——斯马尔蒂斯奖（the Smarties Award）。</p>
-									<p>托尼·罗斯，英国久负盛名的插画家之一，毕业于英国利物浦艺术学院，曾做过艺术顾问、设计、广告、卡通画家等多种工作。他曾获得“德国青少年文学奖”（the Deutsche Jugendliteraturpreis）。</p>
-									<p>讲述了理查德如何通过阴谋诡计成为国王，为满足私欲，他一直步步为营。但却被自己用计谋赶走的王子所带领的军队打败。</p>                   
-								</div>
-							</div>
-						</div>
-						<div class="book_cont">
-							<div class="inner">
-								<div class="scroll">
-									<p>安德鲁·马修斯，国际知名童书作家，生活在英国的伯克郡。他已经为孩子们写了50多本书，作品被广泛翻译到世界各地，曾经两度获得英国童书奖——斯马尔蒂斯奖（the Smarties Award）。</p>
-									<p>托尼·罗斯，英国久负盛名的插画家之一，毕业于英国利物浦艺术学院，曾做过艺术顾问、设计、广告、卡通画家等多种工作。他曾获得“德国青少年文学奖”（the Deutsche Jugendliteraturpreis）。</p>
-									<p>讲述了理查德如何通过阴谋诡计成为国王，为满足私欲，他一直步步为营。但却被自己用计谋赶走的王子所带领的军队打败。</p>                   
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
-	<script type="text/javascript">
-		new Vue({
-			el:'#app',
-			data:{
-				
-			}
-		})
+	<script src="js/classie.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		
 	</script>
 </body>
 </html>

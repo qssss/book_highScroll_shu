@@ -5,83 +5,42 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/basic.css">
 	<link rel="stylesheet" type="text/css" href="css/page04.css">
+	<script type="text/javascript" src="data/cateList.js"></script>
 	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
 	<script type="text/javascript" src="js/vue.min.js"></script>
+	<script type="text/javascript" src="js/keyboard.js"></script>
+	<script type="text/javascript" src="js/xs.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+
 </head>
-<style type="text/css">
-	.page04 {display:block;width: 100%;height: 100%;background: url(images/page04_defaultBg.png);position: relative;overflow: hidden;}
-	.page04 .search_box .search_w {position: relative;width: 900px;margin: 366px auto 0;height: 60px;background: #d1f3ff;}
-	.page04 .search_box .search_w .search_all {width: 180px;float: left;position: relative;height: 100%;}
-	.page04 .search_box .search_w .search_all:after {position: absolute;left: 100%;background-color: #7bc3da;top:15px;bottom: 15px;height: 30px;width: 2px;content: "";}
-	.page04 .search_box .search_w .search_all .t,
-	.page04 .search_box .search_w .search_category .t {width: 100%;height: 100%;line-height: 60px;padding: 0 12px;background: url(images/arrow_down.png) no-repeat 96% center;color: #7bc3da;font-size: 24px;}
-	.page04 .search_box .search_w .search_all .b,
-	.page04 .search_box .search_w .search_category .b {width: 100%;position: absolute;left: 0;right: 0;top: 100%;height: 200px;background: #ddf6ff;box-shadow: 3px 3px 6px rgba(221,246,255,.11)}
-	.page04 .search_box .search_w .search_all .b .inner,
-	.page04 .search_box .search_w .search_category .b .inner {padding: 0 12px;}
-	.page04 .search_box .search_w .search_all .b .inner .scroll,
-	.page04 .search_box .search_w .search_category .b .inner .scroll {width: 100%;height: 100%;overflow-y: auto;}
-	.page04 .search_box .search_w .search_all .b .inner .scroll div,
-	.page04 .search_box .search_w .search_category .b .inner .scroll div {height: 40px;line-height: 40px;font-size: 20px;color: #87c9df;}
-	.page04 .search_box .search_w .search_category {width: 180px;float: left;position: relative;height: 100%;}
-	.page04 .search_box .search_w .search_category:after {position: absolute;left: 100%;background-color: #7bc3da;top:15px;bottom: 15px;height: 30px;width: 2px;content: "";}
-	.page04 .search_box .search_w .search_cell {width: 540px;float: left;height: 100%;position: relative;}
-	.page04 .search_box .search_w .search_cell input {font-size: 20px;padding: 0 20px;position: absolute;left: 0;right: 0;top: 0;bottom: 0;background: transparent;width: 100%;}
-	.page04 .search_box .search_w .search_cell input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-	    color:#7bc3da;font-size: 20px;}
-	.page04 .search_box .search_w .search_cell input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-	   color:#7bc3da;font-size: 20px;}
-	.page04 .search_box .search_w .search_cell input::-moz-placeholder { /* Mozilla Firefox 19+ */
-	   color:#7bc3da;font-size: 20px;}
-	.page04 .search_box .search_w .search_cell input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-	   color:#7bc3da;font-size: 20px;}
-	.page04 .search_box .search_btn {width: 438px;height: 64px;display: block;margin: 70px auto 0;background: url(images/search_btn.png) no-repeat center center;font-size: 26px;color: #fff;}
-	.page04 .success_wrap .search_result {font-size: 26px;color: #7bc3da;text-align: right;margin-top: 35px;padding-right: 68px;}
-	.page04 .success_wrap .success_bookList {position: relative;height: 1270px;border: 1px solid red;margin-top: 20px;padding: 0 25px;}
-	.page04 .success_wrap .success_bookList ul {height: 100%;position: relative;overflow-y: auto;padding-left: 32px;}
-	.page04 .success_wrap .success_bookList ul::-webkit-scrollbar {width: 15px;}
-	.page04 .success_wrap .success_bookList ul::-webkit-scrollbar-thumb {background: url(images/scrollbar1.png) no-repeat center center;}
-	.page04 .success_wrap .success_bookList ul li {float: left;width: 460px;height: 614px;background: url(images/list_bg3.png) no-repeat center center;position: relative;margin-bottom: 40px;}
-	.page04 .success_wrap .success_bookList ul li:nth-child(2n-1) {margin-right: 40px;}
-	.page04 .success_wrap .success_bookList ul li a {position: absolute;left: 10px;right: 10px;top: 10px;bottom: 10px;padding: 10px;}
-	.page04 .success_wrap .success_bookList ul li a .book_top {position: relative;overflow: hidden;width: 100%;margin-top: 20px;}
-	.page04 .success_wrap .success_bookList ul li a .book_top .pic {width: 280px;height: 280px;float: left;margin-left: 15px;background: #fff;}
-	.page04 .success_wrap .success_bookList ul li a .book_top .pic img {display: block;width: 100%;height: 100%;}
-	.page04 .success_wrap .success_bookList ul li a .book_top .book_basic {float: left;}
-	.page04 .success_wrap .success_bookList ul li a .book_top .book_basic h1 {width: 30px;float: left;color: #6e93eb;font-size: 24px;}
-	.page04 .success_wrap .success_bookList ul li a .book_top .book_basic p {width: 30px;float: left;color: #4da9d0;margin-left: 20px;font-size: 18px;margin-right: 12px;}
-	/*.page04 .success_wrap .success_bookList ul li a .book_top .book_details {}*/
-	.page04 .success_wrap .success_bookList ul li a .book_details p {font-size: 18px;color: #555;line-height: 40px;padding: 0 20px;}
-</style>
+
 <body>
 	<div class="page04 default" id="app">
 		<div class="search_box">
 			<div class="search_w">
 				<div class="search_all" >
-					<div class="t">所有字段</div>
-					<div class="b">
+					<div class="t" @click="showAll">{{alltext}}</div>
+					<div class="b" >
 						<div class="inner">
 							<div class="scroll">
-								<div>全部</div>
-								<div>提名</div>
-								<div>ISBN</div>
-								<div>作者</div>
+								<div v-for="n in searchList" @click="toggleAll(n)">{{n.text}}</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="search_category" >
-					<div class="t">分类</div>
+				<div class="search_category" @click="showCate">
+					<div class="t">{{cateText}}</div>
 					<div class="b">
 						<div class="inner">
 							<div class="scroll">
-								<div></div>
+								<div v-for="n in cateList" @click="toggleCate(n)">{{n.text02}}</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="search_cell">
-					<input type="text" name="" placeholder="请搜索你想看的书" >
+					<input type="text" name="" placeholder="请搜索你想看的书" @focus="showKeyBoard" >
+					<a href="javascript:;" @click="searchBook"></a>
 				</div>
 				<div class="keyboard">
 					<div class="keyboard_inner">
@@ -170,108 +129,63 @@
 			</div>
 		</div>
 	</div>
+
 	<script type="text/javascript">
 		new Vue({
 			el:'#app',
-			// data: {
-			// 	flag: true,
-			// 	cateList:[],
-			// 	searchList:[],
-			// 	alltext:'所有字段',
-			// 	cateText:'分类'
-			// },
-			// mounted() {
-			// 	this.init();
-			// },
-			// methods: {
-			// 	init() {
-			// 		this.cateList = cateList;
-			// 		this.searchList = searchList;
-			// 	},
-			// 	showAll: function() {
-			// 		var _all = document.getElementsByClassName('search_all')[0];
-			// 		var _b = _all.getElementsByClassName('b')[0]
-			// 		if(this.flag) {
-			// 			_b.style.display = 'block';
-			// 		} else {
-			// 			_b.style.display = 'none';
-			// 		}
-			// 		this.flag = !this.flag;
-			// 	},
-			// 	showCate: function() {
-			// 		var _all = document.getElementsByClassName('search_category')[0];
-			// 		var _b = _all.getElementsByClassName('b')[0]
-			// 		if(this.flag) {
-			// 			_b.style.display = 'block';
-			// 		} else {
-			// 			_b.style.display = 'none';
-			// 		}
-			// 		this.flag = !this.flag;
-			// 	},
-			// 	searchBook: function() {
-					
-			// 	},
-			// 	showKeyBoard: function() {
-			// 		console.log(this)
-			// 	},
-			// 	toggleAll(n) {
-			// 		this.alltext = n.text;
-			// 	},
-			// 	toggleCate(n) {
-			// 		this.cateText = n.text02;
-			// 	}
-
-			// }
-		})
-
-		$(function() {
-			//键盘事件
-			$('.keyboard .c1 div').click(function() {
-				//点击的值
-				var newT = $(this).text();
-				//输入框原有的值
-				var oldT = $('.search_cell input').val();
-				if(oldT == ""|| oldT == null) {//输入框为空时
-					if(newT == 'space' || newT == 'delete' || newT == 'enter') {//如果点击的是空格键、删除键、回车键的时候
-						alert('请输入您要搜索的书')
+			data: {
+				flag: true,
+				cateList:[],
+				searchList:[],
+				alltext:'所有字段',
+				cateText:'分类'
+			},
+			mounted() {
+				this.init();
+			},
+			methods: {
+				init() {
+					this.cateList = cateList;
+					this.searchList = searchList;
+				},
+				showAll: function() {
+					var _all = document.getElementsByClassName('search_all')[0];
+					var _b = _all.getElementsByClassName('b')[0]
+					if(this.flag) {
+						_b.style.display = 'block';
 					} else {
-						$('.search_cell input').val(newT);
+						_b.style.display = 'none';
 					}
-				}else if(newT == 'delete') {//点击的回退按钮
-					var arr = $('.search_cell input').val().split('');
-					var arr_new = arr.slice(0,arr.length-1);
-					var str_new = arr_new.join('');
-					$('.search_cell input').val(str_new);
-				}else if(newT == 'space') {//点击了空格
-					$('.search_cell input').val(oldT + ' ');		
-				}else if(newT == 'enter') {//点击了回车
-					// $('.keyboard').hide();
-				}else {//点击了其他的
-					$('.search_cell input').val(oldT + newT);
-				}
-				$('.search_cell input').focus();	
-			})
-			//移动到输入框上或者触摸输入框显示键盘
-			$('.search_box .search_cell input').on({
-				mouseover:function() {
-					$('.keyboard').show();
+					this.flag = !this.flag;
 				},
-				touchstart: function() {
-					$('.keyboard').show();
+				showCate: function() {
+					var _all = document.getElementsByClassName('search_category')[0];
+					var _b = _all.getElementsByClassName('b')[0]
+					if(this.flag) {
+						_b.style.display = 'block';
+					} else {
+						_b.style.display = 'none';
+					}
+					this.flag = !this.flag;
 				},
-				click: function() {
-					$('.keyboard').show();
+				searchBook: function() {
+					
+				},
+				showKeyBoard: function() {
+					console.log(this)
+				},
+				toggleAll(n) {
+					this.alltext = n.text;
+					this.showAll();
+				},
+				toggleCate(n) {
+					this.cateText = n.text02;
+					// this.showCate();
 				}
-			})
-			$('.search_cell a').click(function() {
-				var _value = $('.search_cell input').val();
-				$('.keyboard').hide();
-			})
-			$('.key_enter').click(function() {
-				var _value = $('.search_cell input').val();
-				$('.keyboard').hide();
-			})
-		})
-	</script>
+
+			}
+		});
+		
+</script>
 </body>
 </html>

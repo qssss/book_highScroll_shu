@@ -1,0 +1,21 @@
+.page03 {display: block;width: 100%;height: 100%;background: url(../images/page03.png) no-repeat center center;position: relative;overflow: hidden;}
+.page03 .book_basic {margin: 216px 0 35px 177px;position: relative;overflow: hidden;}
+.page03 .book_basic .pic {width: 356px;height: 356px;float: left;margin-right: 45px;border: 1px solid #4480b6;overflow-x: hidden;background: #fff;}
+.page03 .book_basic .pic img {display: block;width: 100%;height: 100%;}
+.page03 .book_basic .details {float: left;padding-right: 50px;}
+.page03 .book_basic .details h1 {font-size: 40px;margin-bottom: 20px;color: #4480b6;}
+.page03 .book_basic .details p {font-size: 24px;line-height: 40px;color: #4480b6;}
+.page03 .book_details {padding: 0 45px;height: 1099px;}
+.page03 .book_details .scroll {overflow-y: auto;height: 100%;}
+.page03 .book_details .scroll::-webkit-scrollbar {width: 2px;}
+.page03 .book_details .scroll::-webkit-scrollbar-thumb {width: 19px;background: url(../images/scrollbar.png) no-repeat center center;}
+.page03 .book_details section {position: relative;overflow: hidden;}
+.page03 .book_details section .title {width: 1011px;height: 60px;background: url(../images/bar.png) no-repeat center center;line-height: 60px;font-size: 26px;color: #fff;}
+.page03 .book_details section .title span {display: inline-block;width: 36px;height: 43px;background: url(../images/bag.png) no-repeat center center;margin-left: 135px;display: inline-block;vertical-align: middle;margin-right: 16px;position: relative;top: -4px;}
+.page03 .book_details section .cont {width: 720px;margin: 0 auto;padding: 25px 0;}
+.page03 .book_details section .cont p {font-size: 18px;color: rgba(73,76,81,1);line-height: 30px;}
+.page03 .book_details section.sec_intro .cont p,
+.page03 .book_details section.sec_author .cont p {text-indent: 2em;line-height: 30px;}
+.page03 .book_details section.sec_category .cont {height: 515px;overflow: hidden;}
+.page03 .book_details section.sec_category .cont p {line-height: 40px;}
+.page03 .book_details section.sec_category button {width: 186px;height: 39px;background: url(../images/btn_bg.png) no-repeat center center;color: #fff;float: right;clear: both;cursor: pointer;margin-bottom: 25px;}
