@@ -109,16 +109,29 @@
 	top: 50%;
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
+	
+	font-size: 0;
 }
 
 .component-small nav a.prev,
 .component-transparent nav a.prev {
 	left: 0px;
+	width:156px;
+	height: 204px;
 }
-
+.component nav a.prev {
+	background: url(../images/bookPrev.png) no-repeat center center;
+	background-size: contain;
+}
+.component nav a.next {
+	background: url(../images/bookNext.png) no-repeat center center;
+	background-size: contain;
+}
 .component-small nav a.next,
 .component-transparent nav a.next {
 	right: 0px;
+	width:156px;
+	height: 204px;
 }
 
 .component-fullwidth nav a {
@@ -137,7 +150,7 @@
 	margin-left: 20px;
 }
 
-.component nav a::before {
+/* .component nav a::before {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -167,7 +180,7 @@ a.prev::before {
 
 a.next::before {
 	content: "\e600";
-}
+} */
 
 @media screen and (max-width: 35.5em) {
 	.component-small nav a {

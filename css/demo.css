@@ -212,12 +212,9 @@ section {
 /* Custom select style, from: https://coderwall.com/p/w7npmq and http://codepen.io/gnclmorais/pen/cHkqt */
 .custom-select {
 	padding: 0;
-	border: 3px solid #5b4c5c;
 	width: 300px;
-	margin: 20px auto 25px;
 	overflow: hidden;
-	font-size: 1.2em;
-	background: transparent url(../img/triangle_dark.png) no-repeat 94% 50%;
+	
 }
 
 .custom-select select {
