@@ -16,9 +16,9 @@
 	<div class="page06" id="app">
 		<div class="topmenu">
 			<ul>
-				<li v-for="n in bookRanking" @click="toggleTab(n)">
-					<img :src="n.default" v-if="flag"/>
-					<img :src="n.selected" v-else="!flag"/>
+				<li v-for="(n,index) in bookRanking" @click="toggleTab(n,index)">
+					<img :src="n.selected" v-if="index==currentIndex"/>
+					<img :src="n.default" v-else/>
 				</li>
 			</ul>
 		</div>
@@ -46,6 +46,7 @@
 		new Vue({
 			el:'#app',
 			data:{
+				currentIndex:0,
 				flag:false,
 				bookRanking:[],
 				rankPic:'images/B_rank.png',
@@ -58,11 +59,12 @@
 				init() {
 					this.bookRanking = bookRanking;
 				},
-				toggleTab(n) {
-					this.flag = !this.flag;
+				toggleTab(n,index) {
+					this.currentIndex = index;
 				},
 			}
 		});
+
 	</script>
 </body>
 </html>
