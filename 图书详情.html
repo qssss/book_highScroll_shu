@@ -13,6 +13,7 @@
 
 <body>
 	<div class="page03" id="app">
+		<div id="menu"><a href="弹窗.html"></a></div>
 		<div class="book_basic">
 			<div class="pic">
 				<img src="images/pic.png">
@@ -64,12 +65,21 @@
 				</section>
 			</div>
 		</div>
+		<div class="goBackPage" @click="goBack">
+			<img src="images/back_circle.png" class="circle"/>
+			<img src="images/back_arrow.png" class="arrow"/>
+		</div>
 	</div>
 	<script type="text/javascript">
 		new Vue({
 			el:'#app',
 			data:{
 				
+			},
+			methods: {
+				goBack() {
+					history.go(-1)
+				}
 			}
 		})
 		

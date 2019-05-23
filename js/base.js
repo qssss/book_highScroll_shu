@@ -19,4 +19,6 @@ $(function() {
     
     //弹窗
     $('.page01 .block').xs999(6,{color:'#fff'});
+    
+    $('body').addClass('pt-page-scaleUp');
 })

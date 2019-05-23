@@ -31,6 +31,7 @@
 .page02 .bookPage .book_info .book_cont.book_cont_detail p {text-indent: 2em;}
 
 
+
 .bookPage {
     width: 800px;
     height: 1380px;
@@ -64,4 +65,9 @@
     visibolity: hidden !important;
     font-size: 0;
     border: none;
+}
+
+#menu {
+    left: 400px;
+    top: 50px;
 }

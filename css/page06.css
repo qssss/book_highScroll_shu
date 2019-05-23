@@ -51,8 +51,10 @@
 
 
 .page06 {width: 100%;height: 100%;background: url(../images/page06.png) no-repeat center center;position: relative;overflow-y: hidden;}
-.page06 .topmenu {margin-top: 308px;height: 139px;padding-left: 50px;width: 100%;}
-.page06 .topmenu ul {display: block;width: 100%;height: 100%;overflow-x: auto;white-space: nowrap;overflow-y: hidden;}
+.page06 .topmenu {margin-top: 308px;height: 139px;padding-left: 50px;width: 100%;overflow-x: auto;overflow-y: hidden;}
+.page06 .topmenu::-webkit-scrollbar {height: 10px;background: #eee;}
+.page06 .topmenu::-webkit-scrollbar-thumb {background: #ddd;}
+.page06 .topmenu ul {display: block;width: 100%;height: 100%;;white-space: nowrap;}
 .page06 .topmenu ul::-webkit-scrollbar {display: none;}
 .page06 .topmenu ul li {display: inline-block;height: 139px;cursor: pointer;}
 .page06 .bookList {display: block;padding: 0 24px 0 60px;position: relative;overflow: hidden;height: 1438px;}

@@ -19,3 +19,57 @@
 .page03 .book_details section.sec_category .cont {height: 515px;overflow: hidden;}
 .page03 .book_details section.sec_category .cont p {line-height: 40px;}
 .page03 .book_details section.sec_category button {width: 186px;height: 39px;background: url(../images/btn_bg.png) no-repeat center center;color: #fff;float: right;clear: both;cursor: pointer;margin-bottom: 25px;}
+/* #menu {
+    right: 20px;
+    left: auto;
+} */
+
+.goBackPage {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    margin-top: -43px;
+    width: 86px;
+    height: 86px;
+    cursor: pointer;
+}
+.goBackPage .circle {
+    width: 86px;
+    height: 86px;
+    animation: circleScale 1.2s linear infinite;
+    position: absolute;
+}
+@keyframes circleScale {
+    0% {
+        opacity: .6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .6;
+    }
+}
+.goBackPage .arrow {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    line-height: 86px;
+    animation: arrowToLeft 2s ease-in-out infinite;
+}
+@keyframes arrowToLeft {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: -12px;
+    }
+    100% {
+        left: 0;
+    }
+}
